@@ -1,12 +1,10 @@
 from aiogram import Dispatcher, Router, F
-from aiogram.filters import Command
 from aiogram.types import Message
-from aiogram_dialog import DialogManager, StartMode, ShowMode
+from aiogram_dialog import DialogManager
 
 from app.dao.holder import HolderDao
-from app.dialogs.register.dialogs import zodiac_signs
+from app.dialogs.utils import zodiac_signs
 from app.models import dto
-from app.states import Register, Horoscope
 
 
 async def unknown_text(message: Message, dialog_manager: DialogManager):
