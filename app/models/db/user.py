@@ -14,14 +14,14 @@ class User(Base):
     zodiac_sign: Mapped[str] = mapped_column(String, nullable=False)
 
     def __repr__(self):
-        rez = (
+        res = (
             f"<User "
             f"ID={self.tg_id} "
             f"name={self.first_name}"
             f"zodiac_sign={self.zodiac_sign}"
         )
 
-        return rez + ">"
+        return res + ">"
 
     def to_dto(self) -> dto.User:
         return dto.User(

@@ -44,6 +44,12 @@ async def get_choose_zodiac(dialog_manager: DialogManager, **kwargs):
         dialog_manager.dialog_data["zodiac_name"] = zodiac_name
 
     horoscope = await get_horoscope_by_zodiac_name(zodiac_name)
+
+    dao: HolderDao = dialog_manager.middleware_data["dao"]
+    horoscope_dto = dto.Horoscope(zodiac_sign=zodiac_name, chat_id=dialog_manager.event.from_user.id)
+    await dao.horoscope.insert_horoscope(horoscope_dto)
+    await dao.commit()
+
     return {
         "horoscope": horoscope
     }

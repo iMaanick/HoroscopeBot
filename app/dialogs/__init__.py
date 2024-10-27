@@ -11,3 +11,4 @@ def setup_all_dialogs(dp: Dispatcher):
     setup_horoscope(dialog_router)
     dp.include_router(dialog_router)
     setup_dialogs(dp)
+    return dialog_router
