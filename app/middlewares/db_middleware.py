@@ -15,7 +15,7 @@ class DBMiddleware(BaseMiddleware):
     async def __call__(
             self,
             handler: Callable[[TelegramObject, dict[str, Any]], Awaitable[Any]],
-            event: CallbackQuery, #CallbackQuery
+            event: CallbackQuery,
             data: dict[str, Any]
     ) -> Any:
         async with self.pool() as session:

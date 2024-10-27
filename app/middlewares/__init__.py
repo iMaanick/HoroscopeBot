@@ -10,6 +10,3 @@ async def setup_middlewares(dp: Dispatcher, pool: async_sessionmaker[AsyncSessio
     dp.update.middleware(DBMiddleware(pool))
     async with pool() as session:
         dp.update.middleware(MessageMiddleware(MessageDAO(session)))
-    # dp.message.middleware(MessageMiddleware(pool))
-    # dp.inline_query.middleware(MessageMiddleware(pool))
-

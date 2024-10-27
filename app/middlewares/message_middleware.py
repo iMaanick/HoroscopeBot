@@ -24,9 +24,4 @@ class MessageMiddleware(BaseMiddleware):
             await self.message.insert_message(msg)
             await self.message.commit()
         result = await handler(event, data)
-        # print(type(event))
-        # if isinstance(event.message, Message) and event.message.edit_date is None:
-        #     print("/////////////////////////////////////")
-        #     print(type(event))
-        #     print(event.message.message_id, event.message.text)
         return result

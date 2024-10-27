@@ -1,11 +1,8 @@
-import pprint
-
 from aiogram import Dispatcher, Router
 from aiogram.filters import Command
 from aiogram.types import Message
 from aiogram_dialog import DialogManager, StartMode, ShowMode
 
-from app.dao.holder import HolderDao
 from app.states import Register
 
 

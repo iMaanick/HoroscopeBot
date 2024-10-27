@@ -4,15 +4,16 @@ from aiogram_dialog import DialogManager
 
 from app.dao.holder import HolderDao
 from app.dialogs.utils import zodiac_signs
-from app.models import dto
+from app.services.message import insert_message
 
 
 async def unknown_text(message: Message, dialog_manager: DialogManager):
+    dao: HolderDao = dialog_manager.middleware_data["dao"]
+
     bot_msg = await message.answer("Извините, я не понял")
 
-    dao: HolderDao = dialog_manager.middleware_data["dao"]
-    msg = dto.Message(message_id=bot_msg.message_id, chat_id=message.from_user.id)
-    logged_message = await dao.message.insert_message(msg)
+    await insert_message(bot_msg.message_id, message.from_user.id, dao)
+
     await dao.commit()
 
 

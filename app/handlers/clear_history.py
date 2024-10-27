@@ -4,7 +4,7 @@ from aiogram.types import Message
 from aiogram_dialog import DialogManager, StartMode, ShowMode
 
 from app.dao.holder import HolderDao
-from app.states import Register, Horoscope
+from app.states import Horoscope
 
 
 async def clear_history_cmd(message: Message, dialog_manager: DialogManager):
