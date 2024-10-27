@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["imaanick <nickolaytrusov01@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiogram = "^3.13.1"
+python-dotenv = "^1.0.1"
+aiogram-dialog = "^2.2.0"
+aiosqlite = "^0.20.0"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.36"}
+alembic = "^1.13.3"
+databases = {extras = ["aiosqlite"], version = "^0.9.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
