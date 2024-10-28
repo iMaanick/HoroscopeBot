@@ -6,11 +6,11 @@ from aiogram_dialog import DialogManager, StartMode, ShowMode
 from app.states import Register
 
 
-async def start_cmd(message: Message, dialog_manager: DialogManager):
+async def start_cmd(message: Message, dialog_manager: DialogManager) -> None:
     await dialog_manager.start(Register.choose_zodiac, mode=StartMode.RESET_STACK, show_mode=ShowMode.DELETE_AND_SEND)
 
 
-def setup_start(dp: Dispatcher):
+def setup_start(dp: Dispatcher) -> None:
     router = Router(name=__name__)
     router.message.register(start_cmd, Command("start"))
 

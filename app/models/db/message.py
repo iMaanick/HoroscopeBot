@@ -15,7 +15,7 @@ class Message(Base):
     chat_id: Mapped[int] = mapped_column(BigInteger)
     sent_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"<Message ID={self.id} message_id={self.message_id} chat_id={self.chat_id} sent_at={self.sent_at}>"
 
     def to_dto(self) -> dto.Message:

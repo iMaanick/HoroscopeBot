@@ -15,7 +15,7 @@ async def on_zodiac_sign_selected(
         widget: Select,
         dialog_manager: DialogManager,
         zodiac_name: str
-):
+) -> None:
     bot: Bot = dialog_manager.middleware_data["bot"]
     dao: HolderDao = dialog_manager.middleware_data["dao"]
 

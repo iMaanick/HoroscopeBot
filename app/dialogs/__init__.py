@@ -5,10 +5,13 @@ from app.dialogs.horoscope import setup_horoscope
 from app.dialogs.register import setup_register
 
 
-def setup_all_dialogs(dp: Dispatcher):
+def setup_all_dialogs(dp: Dispatcher) -> Router:
     dialog_router = Router()
     setup_register(dialog_router)
     setup_horoscope(dialog_router)
     dp.include_router(dialog_router)
     setup_dialogs(dp)
     return dialog_router
+
+
+__all__ = ["setup_all_dialogs"]

@@ -7,7 +7,7 @@ from aiogram_dialog.widgets.media import StaticMedia
 from aiogram_dialog.widgets.text import Const, Format
 
 from app.dialogs.horoscope.getters import get_horoscope
-from app.dialogs.register.dialogs import unknown_message_input
+from app.dialogs.utils import unknown_message_input
 from app.states import Horoscope
 
 src_dir = os.path.normpath(os.path.join(__file__, os.path.pardir))

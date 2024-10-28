@@ -14,7 +14,7 @@ from app.models import create_pool
 from app.scheduler import setup_scheduler
 
 
-async def set_commands(bot: Bot):
+async def set_commands(bot: Bot) -> None:
     commands = [
         BotCommand(command="/start", description="start"),
         BotCommand(command="/update", description="update"),
@@ -24,7 +24,7 @@ async def set_commands(bot: Bot):
     await bot.set_my_commands(commands)
 
 
-async def main():
+async def main() -> None:
     load_dotenv()
     token = os.getenv('TOKEN')
     if not token:

@@ -6,7 +6,7 @@ from app.middlewares.db_middleware import DBMiddleware
 from app.middlewares.message_middleware import MessageMiddleware
 
 
-async def setup_middlewares(dp: Dispatcher, pool: async_sessionmaker[AsyncSession]):
+async def setup_middlewares(dp: Dispatcher, pool: async_sessionmaker[AsyncSession]) -> None:
     dp.update.middleware(DBMiddleware(pool))
     async with pool() as session:
         dp.update.middleware(MessageMiddleware(MessageDAO(session)))

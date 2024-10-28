@@ -24,22 +24,22 @@ class BaseDAO(Generic[Model]):
         )
         return result.scalar_one()
 
-    def save(self, obj: Model):
+    def save(self, obj: Model) -> None:
         self.session.add(obj)
 
-    async def delete_all(self):
+    async def delete_all(self) -> None:
         await self.session.execute(
             delete(self.model)
         )
 
-    async def count(self):
+    async def count(self) -> int:
         result = await self.session.execute(
             select(func.count(self.model.id))
         )
         return result.scalar_one()
 
-    async def commit(self):
+    async def commit(self) -> None:
         await self.session.commit()
 
-    async def flush(self, *objects):
+    async def flush(self, *objects) -> None:
         await self.session.flush(objects)

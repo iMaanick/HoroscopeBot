@@ -13,7 +13,7 @@ class User(Base):
     first_name: Mapped[str]
     zodiac_sign: Mapped[str] = mapped_column(String, nullable=False)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         res = (
             f"<User "
             f"ID={self.tg_id} "

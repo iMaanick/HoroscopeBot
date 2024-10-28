@@ -7,7 +7,7 @@ from app.dao.holder import HolderDao
 from app.states import Horoscope
 
 
-async def clear_history_cmd(message: Message, dialog_manager: DialogManager):
+async def clear_history_cmd(message: Message, dialog_manager: DialogManager) -> None:
 
     dao: HolderDao = dialog_manager.middleware_data["dao"]
     message_ids = await dao.message.get_message_ids_by_chat_id(message.from_user.id)
@@ -20,7 +20,7 @@ async def clear_history_cmd(message: Message, dialog_manager: DialogManager):
     await dialog_manager.start(Horoscope.get_horoscope, mode=StartMode.RESET_STACK, show_mode=ShowMode.DELETE_AND_SEND)
 
 
-def setup_clear_history(dp: Dispatcher):
+def setup_clear_history(dp: Dispatcher) -> None:
     router = Router(name=__name__)
     router.message.register(clear_history_cmd, Command("clear_history"))
 

@@ -7,7 +7,7 @@ from app.dialogs.utils import zodiac_signs
 from app.services.message import insert_message
 
 
-async def unknown_text(message: Message, dialog_manager: DialogManager):
+async def unknown_text(message: Message, dialog_manager: DialogManager) -> None:
     dao: HolderDao = dialog_manager.middleware_data["dao"]
 
     bot_msg = await message.answer("Извините, я не понял")
@@ -17,7 +17,7 @@ async def unknown_text(message: Message, dialog_manager: DialogManager):
     await dao.commit()
 
 
-def setup_unknown_text(dp: Dispatcher):
+def setup_unknown_text(dp: Dispatcher) -> None:
     router = Router(name=__name__)
     router.message.register(unknown_text, F.text.not_in(zodiac_signs))
     dp.include_router(router)

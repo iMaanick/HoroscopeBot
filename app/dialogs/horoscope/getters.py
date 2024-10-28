@@ -3,7 +3,7 @@ from aiogram_dialog import DialogManager
 from app.services.horoscope import get_zodiac_name, get_horoscope_by_zodiac_name, insert_horoscope
 
 
-async def get_horoscope(dialog_manager: DialogManager, **kwargs):
+async def get_horoscope(dialog_manager: DialogManager, **kwargs) -> dict[str, str]:
     zodiac_name = await get_zodiac_name(dialog_manager)
 
     if zodiac_name not in dialog_manager.dialog_data:

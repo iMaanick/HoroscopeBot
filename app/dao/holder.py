@@ -13,10 +13,10 @@ class HolderDao:
     message: MessageDAO = field(init=False)
     horoscope: HoroscopeDAO = field(init=False)
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         self.user = UserDAO(self.session)
         self.message = MessageDAO(self.session)
         self.horoscope = HoroscopeDAO(self.session)
 
-    async def commit(self):
+    async def commit(self) -> None:
         await self.session.commit()

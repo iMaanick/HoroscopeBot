@@ -41,7 +41,7 @@ async def on_input_unknown(
         message: Message,
         widget: MessageInput,
         dialog_manager: DialogManager,
-):
+) -> None:
     dao: HolderDao = dialog_manager.middleware_data["dao"]
 
     bot_msg = await message.answer("Извините, я не понял")

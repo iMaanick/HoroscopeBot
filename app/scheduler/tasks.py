@@ -7,7 +7,7 @@ from app.dao.holder import HolderDao
 from app.states import Horoscope
 
 
-async def daily_horoscope(bot: Bot, router: Router, dao: HolderDao):
+async def daily_horoscope(bot: Bot, router: Router, dao: HolderDao) -> None:
     users = await dao.user.get_users_to_send_horoscope()
     for user in users:
         bg = BgManager(user=User(id=user.tg_id, is_bot=False, first_name=user.first_name),

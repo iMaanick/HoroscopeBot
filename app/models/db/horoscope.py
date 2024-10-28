@@ -16,7 +16,7 @@ class Horoscope(Base):
     zodiac_sign: Mapped[str] = mapped_column(String, nullable=False)
     requested_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"<Horoscope ID={self.id} chat_id={self.chat_id} zodiac_sign={self.zodiac_sign} requested_at={self.requested_at}> "
 
     def to_dto(self) -> dto.Horoscope:
