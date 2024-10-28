@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import BigInteger, Integer, String, DateTime
+from sqlalchemy import BigInteger, Integer, DateTime
 from sqlalchemy.orm import mapped_column, Mapped
 
 from app.models import dto

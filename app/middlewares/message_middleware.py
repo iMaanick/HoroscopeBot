@@ -1,12 +1,11 @@
 from typing import Callable, Any, Awaitable
 
 from aiogram import BaseMiddleware
-from aiogram.types import TelegramObject, Update, CallbackQuery, Message
-from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession
+from aiogram.types import TelegramObject, Update, Message
 
-from app.dao.holder import HolderDao
 from app.dao.message import MessageDAO
 from app.models import dto
+
 
 class MessageMiddleware(BaseMiddleware):
     def __init__(self, message: MessageDAO):
